@@ -13,15 +13,15 @@ Based on your analyses, select exactly three distinct regions that most strongly
 Within <think>, structure your reasoning process as follows:
 
 <Time_analysis>
-Start with analyze non-speech section and/or speech section of the spectrogram as a whole. Describe any artificial artifacts regarding temporal coherence.
+Start with analyze non-speech section and speech section of the spectrogram. Describe any signs of artificial audio in each section.
 </Time_analysis>
 
 <Frequency_analysis>
-Follow with analyze different levels of low, mid, and/or high-frequency section of the spectrogram as a whole. Describe any artificial artifacts regarding energy levels.
+Follow with analyze different levels of low, mid, and/or high-frequency section of the spectrogram. Describe any signs of artificial audio in each energy levels.
 </Frequency_analysis>
 
 <Acoustic_analysis>
-Next analyze different phonetics including vowel, consonant, and/or unvoiced, using the spoken content in the audio and its acoustic features shown in the spectrogram as a whole. Describe any artificial artifacts regarding speech components.
+Next analyze different phonetics including vowel, consonant, and/or unvoiced, using the spoken content in the audio and its acoustic features shown in the spectrogram. Describe any artificial artifacts in each speech components.
 </Acoustic_analysis>
 
 OUTPUT FORMAT (must follow exactly)
