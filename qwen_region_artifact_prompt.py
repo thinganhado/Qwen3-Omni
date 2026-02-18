@@ -80,9 +80,6 @@ def _read_input_items(args: argparse.Namespace):
                         "sample_id_raw": sample_id_raw,
                         "sample_id": sample_stem,
                         "region_id": rid,
-                        "time": str(row.get("T", "")).strip(),
-                        "frequency": str(row.get("F", "")).strip(),
-                        "phonetic": str(row.get("P_type", "")).strip(),
                         "raw_row": dict(row),
                     }
                 )
@@ -107,17 +104,8 @@ def _read_input_items(args: argparse.Namespace):
                     "audio": str(audio_path),
                     "image": str(image_path),
                     "ID1": top3[0]["region_id"],
-                    "time1": top3[0]["time"],
-                    "frequency1": top3[0]["frequency"],
-                    "phonetic1": top3[0]["phonetic"],
                     "ID2": top3[1]["region_id"],
-                    "time2": top3[1]["time"],
-                    "frequency2": top3[1]["frequency"],
-                    "phonetic2": top3[1]["phonetic"],
                     "ID3": top3[2]["region_id"],
-                    "time3": top3[2]["time"],
-                    "frequency3": top3[2]["frequency"],
-                    "phonetic3": top3[2]["phonetic"],
                     "rows_top3": top3,
                     "input_text": "",
                 }
@@ -249,7 +237,7 @@ def parse_args():
     parser.add_argument(
         "--region-csv",
         default=DEFAULT_REGION_CSV,
-        help="CSV with region_id/T/F/P_type (and optional sample_id).",
+        help="CSV with region_id and sample_id columns; IDs are sorted ascending per sample.",
     )
     parser.add_argument(
         "--test-region-csv",

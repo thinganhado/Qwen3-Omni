@@ -8,7 +8,7 @@ You can detect regions containing deepfake artifacts and extract its features by
 
 For each analysis, highlight evidence in the artificial audio that differs from genuine audio. Keep the reasoning concise and summarize your findings for each step.
 
-Based on your analyses, select exactly three distinct regions that most strongly contain deepfake artifacts. For each selected region, output four discrete features: id, time, frequency and phonetic.
+Based on your analyses, select exactly three distinct regions that most strongly contain deepfake artifacts. 
 
 Within <think>, structure your reasoning process as follows:
 
@@ -37,11 +37,5 @@ OUTPUT FORMAT
 </think>
 
 <answer>
-{
-  "regions": [
-    {"id": id1, "time": "speech|non_speech", "freq": "low|mid|high", "phonetic": "vowel|consonant|unvoiced|unknown"},
-    {"id": id2, "time": "speech|non_speech", "freq": "low|mid|high", "phonetic": "vowel|consonant|unvoiced|unknown"},
-    {"id": id3, "time": "speech|non_speech", "freq": "low|mid|high", "phonetic": "vowel|consonant|unvoiced|unknown"}
-  ]
-}
+[3 IDs]
 </answer>
