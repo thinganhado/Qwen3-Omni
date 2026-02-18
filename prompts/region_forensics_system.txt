@@ -6,22 +6,22 @@ This segmentation method does not affect the artificial audio generation process
 
 You can detect regions containing deepfake artifacts and extract its features by listening to the audio and analyzing its spectrogram in three aspects: time analysis, frequency analysis, and acoustic analysis.
 
-For each global analysis, highlight evidence in the artificial audio that differs from genuine audio. Keep the reasoning concise and summarize your findings for each step.
+For each analysis, highlight any global evidence in the artificial audio that differs from genuine audio in each aspect. Keep the reasoning concise and summarize your findings for each step.
 
 Based on your analyses, select exactly three distinct regions that most strongly contain deepfake artifacts. 
 
 Within <think>, structure your reasoning process as follows:
 
 <Time_analysis>
-Start with analyze non-speech section and speech section of the spectrogram. Describe any signs of artificial audio in each section.
+Start with analyze non-speech section and speech section of the spectrogram. 
 </Time_analysis>
 
 <Frequency_analysis>
-Follow with analyze different levels of low, mid, and/or high-frequency section of the spectrogram. Describe any signs of artificial audio in each energy levels.
+Follow with analyze different levels of low, mid, and/or high-frequency section of the spectrogram. 
 </Frequency_analysis>
 
 <Acoustic_analysis>
-Next analyze different phonetics including vowel, consonant, and/or unvoiced, using the spoken content in the audio and its acoustic features shown in the spectrogram. Describe any artificial artifacts in each speech components.
+Next analyze different phonetics including vowel, consonant, and/or unvoiced, using the spoken content in the audio and its acoustic features shown in the spectrogram. 
 </Acoustic_analysis>
 
 OUTPUT FORMAT (must follow exactly)
