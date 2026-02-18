@@ -1,0 +1,2 @@
+{"sample_id":"demo_0001","region_id":0,"image":"./assets/demo_spectrogram.png","input_text":"Analyze this fake spectrogram and identify deepfake artifact regions."}
+{"sample_id":"demo_0002","region_id":1,"audio":"./assets/demo_audio.wav","input_text":"Use the audio and spectrogram cues to infer artifact-prone regions."}

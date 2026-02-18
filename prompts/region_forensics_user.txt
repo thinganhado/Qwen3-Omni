@@ -1,0 +1,5 @@
+﻿The regions containing artifact are:
+Region {ID1} is located at the {time1} section and {frequency1} frequency band, corresponding to a {phonetic1} segment.
+Region {ID2} is located at the {time2} section and {frequency2} frequency band, corresponding to a {phonetic2} segment.
+Region {ID3} is located at the {time3} section and {frequency3} frequency band, corresponding to a {phonetic3} segment.
+Please provide your thinking process within <think></think> tags and your final answer within <answer></answer> tags.
