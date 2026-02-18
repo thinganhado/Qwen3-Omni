@@ -195,16 +195,21 @@ def _generate_one(model, processor, messages, max_new_tokens, do_sample, tempera
     ).to(model.device).to(model.dtype)
 
     sample_flag = bool(do_sample and temperature > 0.0)
+    generate_kwargs = {
+        "return_audio": False,
+        "thinker_return_dict_in_generate": True,
+        "thinker_max_new_tokens": max_new_tokens,
+        "thinker_do_sample": sample_flag,
+        "use_audio_in_video": use_audio_in_video,
+    }
+    if sample_flag:
+        generate_kwargs["thinker_temperature"] = temperature
+        generate_kwargs["thinker_top_p"] = top_p
+        generate_kwargs["thinker_top_k"] = top_k
+
     text_ids, _audio = model.generate(
         **inputs,
-        return_audio=False,
-        thinker_return_dict_in_generate=True,
-        thinker_max_new_tokens=max_new_tokens,
-        thinker_do_sample=sample_flag,
-        thinker_temperature=temperature,
-        thinker_top_p=top_p,
-        thinker_top_k=top_k,
-        use_audio_in_video=use_audio_in_video,
+        **generate_kwargs,
     )
     return processor.batch_decode(
         text_ids.sequences[:, inputs["input_ids"].shape[1] :],

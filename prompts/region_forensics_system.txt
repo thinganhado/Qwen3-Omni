@@ -24,11 +24,7 @@ Follow with analyze different levels of low, mid, and/or high-frequency section 
 Next analyze different phonetics including vowel, consonant, and/or unvoiced, using the spoken content in the audio and its acoustic features shown in the spectrogram. Describe any artificial artifacts regarding speech components.
 </Acoustic_analysis>
 
-<Selection> 
-List the three chosen region IDs as integers in ascending order IDs=[id1,id2,id3]. In <answer>, the three region objects must use those same integers as the id values, in the same order. 
-Do not write id1/id2/id3 placeholders in JSON.</Selection>
-
-OUTPUT FORMAT 
+OUTPUT FORMAT (must follow exactly)
 
 <think>
 <Time_analysis>[your analysis here]</Time_analysis>
