@@ -16,6 +16,7 @@ DEFAULT_USER_TEMPLATE_FILE = THIS_DIR / "prompts" / "region_forensics_user.txt"
 DEFAULT_OUTPUT_DIR = THIS_DIR / "outputs" / "qwen3_omni"
 DEFAULT_MODEL_ID = "/datasets/work/dss-deepfake-audio/work/data/datasets/interspeech/ALLM/Qwen3-Omni-30B-A3B-Thinking/"
 DEFAULT_REGION_CSV = "/datasets/work/dss-deepfake-audio/work/data/datasets/interspeech/img/region_phone_table_grid.csv"
+DEFAULT_TEST_REGION_CSV = "/scratch3/che489/Ha/interspeech/datasets/region_phone_table_top3_all_with_ptype_feature.csv"
 DEFAULT_WAV_ROOT = "/datasets/work/dss-deepfake-audio/work/data/voc-v4/voc.v4/wav/"
 DEFAULT_SPEC_ROOT = "/datasets/work/dss-deepfake-audio/work/data/datasets/interspeech/img/specs/grid/"
 
@@ -53,8 +54,11 @@ def _read_input_items(args: argparse.Namespace):
     elif args.prompt:
         items = [{"sample_id": "single", "region_id": 0, "input_text": args.prompt}]
     elif args.region_csv:
-        csv_path = Path(args.region_csv).expanduser().resolve()
+        csv_source = args.test_region_csv if args.test else args.region_csv
+        csv_path = Path(csv_source).expanduser().resolve()
         if not csv_path.exists():
+            if args.test:
+                raise FileNotFoundError(f"--test-region-csv does not exist: {csv_path}")
             raise FileNotFoundError(f"--region-csv does not exist: {csv_path}")
 
         by_sample = defaultdict(list)
@@ -246,6 +250,16 @@ def parse_args():
         "--region-csv",
         default=DEFAULT_REGION_CSV,
         help="CSV with region_id/T/F/P_type (and optional sample_id).",
+    )
+    parser.add_argument(
+        "--test-region-csv",
+        default=DEFAULT_TEST_REGION_CSV,
+        help="CSV used only when --test is enabled.",
+    )
+    parser.add_argument(
+        "--test",
+        action="store_true",
+        help="Use --test-region-csv instead of --region-csv.",
     )
     parser.add_argument("--wav-root", default=DEFAULT_WAV_ROOT, help="Root for WAV files named <sample_id>.wav")
     parser.add_argument(
